@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .root{
+            color: aquamarine;
+            margin: auto;
+            background-color: black;
+            
+            
+        }
+
+        #cBox {
+            width: 400px;
+            height: 400px;
+            display: flex;
+        }
+
+        #Dtl{
+            display: flex;
+        }
+
+        #But{
+            display: flex;
+        }
+
+
+
+    </style>
+</head>
+<body>
+
+    <div id = "root">
+
+    </div>
+
+
+
+    <script>
+
+
+
+            let detailsEntered = {
+                text : "",
+                color : "",
+            }
+
+            function renderUI(){
+                let root = document.getElementById("root")
+            
+            
+
+                let colorBoxes = document.createElement("div")
+                colorBoxes.className ="cBox"
+                let redBox = document.createElement("button")
+                redBox.style.backgroundColor = "red"
+                redBox.style.height = "20px"
+                redBox.style.width = "20px"
+                let yellowBox = document.createElement("button")
+                yellowBox.style.backgroundColor = "yellow"
+                yellowBox.style.height = "20px"
+                yellowBox.style.width = "20px"
+                let greenBox = document.createElement("button")
+                greenBox.style.backgroundColor = "green"
+                greenBox.style.height = "20px"
+                greenBox.style.width = "20px"
+
+                colorBoxes.appendChild(redBox)
+                colorBoxes.appendChild(yellowBox)
+                colorBoxes.appendChild(greenBox)
+
+                root.appendChild(colorBoxes)
+
+
+
+                let Details = document.createElement("div")
+                Details.className = "Dtl"
+                
+                let textLabel = document.createElement("label")
+                textLabel.textContent = "Enter Your Text : "
+                Details.appendChild(textLabel)
+                
+
+                let text = document.createElement("input")
+                text.textContent = "name"
+
+                Details.appendChild(text)
+                root.appendChild(Details)
+
+
+                let buttons = document.createElement("div")
+                buttons.className = "But"
+
+                let submitButton = document.createElement("button")
+                submitButton.textContent = "Submit"
+
+                let resetButton = document.createElement("button")
+                resetButton.textContent = "Reset"
+                
+
+                buttons.appendChild(submitButton)
+                buttons.appendChild(resetButton)
+
+                root.appendChild(buttons)
+
+                let outputField = document.createElement("div")
+                outputField.id = "OutPut"
+
+                root.appendChild(outputField)
+
+
+                if(redBox.addEventListener("click", function(){
+                    redBox.style.border = "2px solid black"
+                   
+                })){
+                    color = "red"
+                }
+                else if(greenBox.addEventListener("click", function(){
+                    greenBox.style.border = "black"
+                    
+                })){
+                    color = "green"
+                }
+                else if(yellowBox.addEventListener("click", function(){
+                    yellowBox.style.border = "2px solid black"
+                })){
+                    color = "yellow"
+                }
+
+                submitButton.addEventListener('click', function(){
+                    let inputValue = text.value
+                    outputField.textContent = "You Have Entered : " + inputValue
+                })
+
+                resetButton.addEventListener('click', function(){
+                    let inputValue = text.value
+                    outputField.textContent = ""
+                })
+
+                
+        }
+
+        renderUI()
+           
+
+
+            
+
+
+
+
+
+    </script>
+</body>
+</html>
